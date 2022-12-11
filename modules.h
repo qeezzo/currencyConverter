@@ -6,4 +6,6 @@ string inputCurrency();
 
 bool verifying(string&);
 
-int inputSum();
+unsigned long inputSum();
+
+string getCurrencyJson(char[]);

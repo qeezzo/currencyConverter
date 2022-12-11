@@ -6,7 +6,8 @@ string inputCurrency() {
 	return currency;
 }
 
-int inputSum() {
+
+unsigned long inputSum() {
 	int sum;
 	cin >> sum;
 	return sum;

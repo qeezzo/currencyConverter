@@ -1,5 +1,4 @@
 #include "modules.h"
-#include <exception>
 #include <string>
 #include <fstream>
 
@@ -20,7 +19,7 @@ bool verifying(string& currency)
 				return true;
 		}
 	}
-
+	
 	abb.close();
 
 	return false;

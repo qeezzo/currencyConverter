@@ -15,21 +15,27 @@ int main() {
 		currencyIn = inputCurrency();
 	}
 
-	cout << "to :\t";
+	cout << "to   :\t";
 	currencyOut = inputCurrency();
 	while (!verifying(currencyOut)){
 		cout << "Error : incorect input data" << endl; 
 		currencyOut = inputCurrency();
 	}
 
-	cout << "sum :\t";
+	cout << "sum  :\t";
 	sum = inputSum();
 	while (sum < 0){
 		cout << "Error : incorect input data" << endl;
 
-		cout << "sum :\t";
+		cout << "sum  :\t";
 		sum = inputSum();
 	}
+
+	char url[] = "https://www.nbrb.by/api/exrates/rates/USD?parammode=2";
+	string currencyJson;
+	currencyJson = getCurrencyJson(url);
+
+	cout << "get json : " << currencyJson << endl;
 
 	return 0;
 }
