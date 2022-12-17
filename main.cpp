@@ -1,11 +1,12 @@
 #include <iostream>
+#include <iomanip>
 #include "modules.h"
 using namespace std;
 
 int main() {
 	string currencyIn;
 	string currencyOut;
-	unsigned long int sum;
+	unsigned sum;
 	int	result;
 	
 	cout << "from :\t";
@@ -18,24 +19,45 @@ int main() {
 	cout << "to   :\t";
 	currencyOut = inputCurrency();
 	while (!verifying(currencyOut)){
-		cout << "Error : incorect input data" << endl; 
+		cout << "Error : incorrect input data" << endl; 
 		currencyOut = inputCurrency();
 	}
 
 	cout << "sum  :\t";
 	sum = inputSum();
-	while (sum < 0){
-		cout << "Error : incorect input data" << endl;
 
-		cout << "sum  :\t";
-		sum = inputSum();
-	}
+	Currency curIn, curOut;
+	string urlIn, urlOut; 
+	string currencyJsonIn, currencyJsonOut;
 
-	char url[] = "https://www.nbrb.by/api/exrates/rates/USD?parammode=2";
-	string currencyJson;
-	currencyJson = getCurrencyJson(url);
+	urlIn = transformToRequest(currencyIn);
+	urlOut = transformToRequest(currencyOut);
 
-	cout << "get json : " << currencyJson << endl;
+	currencyJsonIn = getCurrencyJson(urlIn);
+	currencyJsonOut = getCurrencyJson(urlOut);
+
+	jsonParcer(curIn, currencyJsonIn);
+	jsonParcer(curOut, currencyJsonOut);
+
+
+	//cout << "Name : " << curIn.name << endl;
+	//cout << "Rate : " << curIn.rate << endl;
+	//cout << "Date : " << curIn.date << endl;
+	//cout << "Scle : " << curIn.scale << endl;
+
+	//cout << "Name : " << curOut.name << endl;
+	//cout << "Rate : " << curOut.rate << endl;
+	//cout << "Date : " << curOut.date << endl;
+	//cout << "Scle : " << curOut.scale << endl;
+
+	long double sumOut{};
+	sumOut = calcSumOut(curIn, curOut, sum);
+
+	//system("clear");
+	cout << endl;
+
+	cout << sum << " " << curIn.name << " > " << curOut.name << endl;
+	cout << "=== " << setprecision(4) << fixed << sumOut << " ===" << endl;
 
 	return 0;
 }
