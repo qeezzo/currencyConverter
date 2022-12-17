@@ -7,13 +7,6 @@ string inputCurrency() {
 	for(int i{}; i< currency.length(); i++){
 		if (currency[i] >= 'a' and currency[i] <= 'z')
 			currency[i] = currency[i] - 32;
-
-		// verifying incorrect symbols
-		else if (!(currency[i] >= 'a' && currency[i] <= 'z') && !(currency[i] >= 'A' && currency[i] <= 'Z')){
-			cout << "Error : incorrect input data : not even a letter!" << endl;
-			cout << "to   :\t";
-			return inputCurrency();
-		}
 	}
 
 	return currency;

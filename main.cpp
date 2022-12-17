@@ -12,14 +12,14 @@ int main() {
 	cout << "from :\t";
 	currencyIn = inputCurrency();
 	while (!verifying(currencyIn)){
-		cout << "Error : incorect input data" << endl; 
+		cout << "from :\t";
 		currencyIn = inputCurrency();
 	}
 
 	cout << "to   :\t";
 	currencyOut = inputCurrency();
 	while (!verifying(currencyOut)){
-		cout << "Error : incorrect input data" << endl; 
+		cout << "to   :\t";
 		currencyOut = inputCurrency();
 	}
 
@@ -58,6 +58,7 @@ int main() {
 
 	cout << sum << " " << curIn.name << " > " << curOut.name << endl;
 	cout << "=== " << setprecision(4) << fixed << sumOut << " ===" << endl;
+
 
 	return 0;
 }

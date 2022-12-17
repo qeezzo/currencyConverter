@@ -5,10 +5,10 @@ using namespace std;
 
 struct Currency {
 
-	string name;
-	int scale;
+	string name {"Белорусский Рубль"};
+	int scale {1};
 	string date;
-	double rate;
+	double rate {1.0};
 };
 
 string inputCurrency();

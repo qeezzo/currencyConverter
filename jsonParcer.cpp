@@ -32,7 +32,7 @@ void jsonParcer(Currency& cur, string json)
 			}
 
 			// write into struct
-			if 		(tmpKey == "Date")
+			if 		(tmpKey == "Date"s)
 				cur.date = tmpValue;
 			else if (tmpKey == "Cur_Name"s)
 				cur.name = tmpValue;
